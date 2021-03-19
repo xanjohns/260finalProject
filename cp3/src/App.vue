@@ -2,7 +2,9 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/songs">All Songs</router-link>
+      <router-link to="/playlist">View Playlist</router-link>
+      <router-link to="/search">Search</router-link>
     </div>
     <router-view/>
   </div>
@@ -15,6 +17,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: rgb(19, 19, 19);
+  
 }
 
 #nav {
