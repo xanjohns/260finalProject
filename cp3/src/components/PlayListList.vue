@@ -2,28 +2,34 @@
   <div class="wrapper">
     <button id="playlist-butt" @click="addPlaylist()">Add a Playlist</button>
     <div class="playlist-cont">
-      <div
+      <div 
+       
         class="playlist"
         v-for="(playlist, index) in this.$root.$data.playlists"
-        :key="playlist[0].song"
+        :key="playlist.length"
       >
         <h2>PlayList {{ index + 1 }}</h2>
-
-        <div class="song-cont" v-for="song in playlist" :key="song.song">
-          <div class="song">
-            <img :src="'/images/' + song.cover" />
-            <div class="info-cont">
-              <h2>{{ song.song }}</h2>
-              <h3>{{ song.album }}</h3>
+        <div >
+          <div class="song-cont" v-for="song in playlist" :key="song.song">
+            <div class="song">
+              <img :src="'/images/' + song.cover" />
+              <div class="info-cont">
+                <h2>{{ song.song }}</h2>
+                <h3>{{ song.album }}</h3>
+              </div>
+              <div class="stats-cont">
+                <h3>{{ song.duration }}</h3>
+                <h3>Popularity: {{ song.popularity }}</h3>
+              </div>
+              <button class="rem-song-butt" @click="removeSong(song, playlist)">
+                Remove Song
+              </button>
             </div>
-            <div class="stats-cont">
-              <h3>{{ song.duration }}</h3>
-              <h3>Popularity: {{ song.popularity }}</h3>
-            </div>
-            <button class="rem-song-butt" @click="removeSong(song, playlist)">Remove Song</button>
           </div>
         </div>
-        <button class="rem-playlist-butt" @click="removePlaylist(playlist)">Remove Playlist</button>
+        <button class="rem-playlist-butt" @click="removePlaylist(playlist)">
+          Remove Playlist
+        </button>
       </div>
     </div>
   </div>
@@ -40,11 +46,11 @@ export default {
     playListC() {
       return this.$root.$data.playlists;
     },
-    hasVals(index) {
-      return this.playList[index].length > 0;
-    },
+
   },
+
   methods: {
+    
     removeSong(song, playlist) {
       const index = this.$root.$data.playlists.indexOf(playlist);
       const index2 = this.$root.$data.playlists[index].indexOf(song);
@@ -55,20 +61,13 @@ export default {
     addPlaylist() {
       if (this.$root.$data.playlists.length < 6) {
         let tempObj = [];
+        this.$root.$data.playlists.push(tempObj);
         Vue.set(
           this.$root.$data.playlists,
-          this.$root.$data.playlists.length,
+          this.$root.$data.playlists.length-1,
           tempObj
         );
-        Vue.set(
-          this.$root.$data.playlists,
-          this.$root.$data.playlists.length,
-          tempObj
-        );
-        this.$root.$data.playlists.splice(
-          this.$root.$data.playlists.length - 1,
-          1
-        );
+       
         //this.$root.$data.playlists.push(tempObj);
       }
     },
@@ -84,36 +83,35 @@ export default {
 
 <style scoped>
 .rem-song-butt {
-    height: 40%;
-    width: 80px;
-    margin: auto auto;
-    margin-right: 15px;
-    margin-left: 10px;
-    background-color: rgb(85, 85, 85);
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
-    
-    justify-content: center;
+  height: 40%;
+  width: 80px;
+  margin: auto auto;
+  margin-right: 15px;
+  margin-left: 10px;
+  background-color: rgb(85, 85, 85);
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+
+  justify-content: center;
 }
 .rem-playlist-butt {
-    background-color: rgb(165, 165, 165);
-    margin: 15px auto;
-    height: 25px;
-
+  background-color: rgb(165, 165, 165);
+  margin: 15px auto;
+  height: 25px;
 }
 #playlist-butt {
-    height: 40px;
-    background-color: rgb(184, 184, 184);
-    font-size: 20px;
-    padding: 20px 25px;
-    justify-content: center;
-    margin: auto auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 40px;
+  background-color: rgb(184, 184, 184);
+  font-size: 20px;
+  padding: 20px 25px;
+  justify-content: center;
+  margin: auto auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .playlist {
   margin: 10px auto;
@@ -124,7 +122,7 @@ export default {
 }
 .wrapper {
   width: 100%;
-  
+
   margin: 0px;
 }
 .playlist-cont {
@@ -134,7 +132,6 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
-  
 }
 .filter-cont button {
   background-color: #4169e1;
