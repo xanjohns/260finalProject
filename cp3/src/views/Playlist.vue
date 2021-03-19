@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Songs</h1>
+    <h1>PlayLists</h1>
     <PlayListList :playList="PlayListProp" />
   </div>
 </template>

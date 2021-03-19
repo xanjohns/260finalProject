@@ -32,4 +32,9 @@ export default {
 h1 {
   color: white;
 }
+input {
+    width: 15%;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
 </style>

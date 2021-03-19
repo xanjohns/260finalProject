@@ -52,13 +52,15 @@ let mock = [
         song: "Hero",
         album: "Van Weezer",
         duration: "3:55",
-        popularity: 7
+        popularity: 7,
+        cover: "van_weezer.png"
     },
     {
         song: "The End of the Game",
         album: "Van Weezer",
         duration: "3:00",
-        popularity: 9
+        popularity: 9,
+        cover: "van_weezer.png"
     },
     {
         song: "Unspoken",
@@ -85,19 +87,22 @@ let mock = [
         song: "Beverly Hills",
         album: "Make Believe",
         duration: "3:15",
-        popularity: 9
+        popularity: 9,
+        cover: "make_believe.jpg"
     },
     {
         song: "Perfect Situation",
         album: "Make Believe",
         duration: "4:13",
-        popularity: 9
+        popularity: 9,
+        cover: "make_believe.jpg"
     },
     {
         song: "Slave",
         album: "Maladroit",
         duration: "2:52",
-        popularity: 3
+        popularity: 3,
+        cover: "maladroit.jpg"
     },
 ]
 

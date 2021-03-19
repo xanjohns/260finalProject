@@ -7,22 +7,26 @@
       <button @click="sortPop()">Popularity</button>
       <button @click="sortLength()">Length</button>
     </div>
-    <div class="song" v-for="song in songs" :key="song.song">
-      <img :src="'/images/' + song.cover" />
-      <div class="info-cont">
-        <h2>{{ song.song }}</h2>
-        <h3>{{ song.album }}</h3>
-      </div>
-      <h3>{{ song.duration }}</h3>
-      <h3>{{ song.popularity }}</h3>
-      <div class="button-cont">
-        <button
-          v-for="(playlist, index) in playlistC"
-          :key="playlist.length"
-          @click="addSong(song, index)"
-        >
-          Add Song
-        </button>
+    <div class="song-cont">
+      <div class="song" v-for="song in songs" :key="song.song">
+        <img :src="'/images/' + song.cover" />
+        <div class="info-cont">
+          <h2>{{ song.song }}</h2>
+          <h3>{{ song.album }}</h3>
+        </div>
+        <div class="stats-cont">
+          <h3>{{ song.duration }}</h3>
+          <h3>Popularity: {{ song.popularity }}</h3>
+        </div>
+        <div class="button-cont">
+          <button
+            v-for="(playlist, index) in playlistC"
+            :key="playlist.length"
+            @click="addSong(song, index)"
+          >
+            PlyLst {{index+1}}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +59,7 @@ export default {
     },
     sortPop() {
       this.$root.$data.songs.sort((a, b) => {
-        return a.popularity-b.popularity;
+        return a.popularity - b.popularity;
       });
     },
     sortLength() {
@@ -67,7 +71,37 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+.filter-cont button {
+    background-color: #4169e1;
+    margin: 0px 30px;
+    height: 60px;
+    width: 130px;
+    font-size: 25px;
+    color: white;
+}
+.stats-cont {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+.stats-cont h3 {
+    margin: 3px 0px;
+
+}
+.song-cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  margin-top: 20px;
+
+  justify-content: space-between;
+  
+}
 .button-cont {
   display: flex;
   flex-direction: row;
@@ -79,13 +113,14 @@ export default {
 }
 .button-cont button {
   margin: 5px 5px;
-  height: 40%;
+  height: 20%;
+  width: auto;
+  color: white;
+  background-color: rgb(75, 75, 78);
+  border: none;
+  text-decoration: none;
 }
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0px 60px;
 }
 img {
   height: 100%;
@@ -95,22 +130,24 @@ img {
   display: flex;
   flex-direction: row;
   height: 120px;
-  width: 42%;
+  width: 600px;
   background-color: rgb(34, 34, 34);
   margin: 10px auto;
+  box-shadow: 5px 5px 10px black;
 }
 .info-cont {
   display: flex;
   flex-direction: column;
   margin: auto 30px;
   text-align: center;
-  padding: 0px 0px;
+  padding: 10px 0px;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 80%;
 }
 .info-cont h3 {
   padding: 0px 0px;
+  font-size: 15px;
   margin: 0px 0px;
   color: rgb(155, 155, 155);
 }
