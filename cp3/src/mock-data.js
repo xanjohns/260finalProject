@@ -64,19 +64,22 @@ let mock = [
         song: "Unspoken",
         album: "Hurley",
         duration: "3:00",
-        popularity: 5
+        popularity: 5,
+        cover: "hurley.png"
     },
     {
         song: "Run Away",
         album: "Hurley",
         duration: "2:55",
-        popularity: 4
+        popularity: 4,
+        cover: "hurley.png"
     },
     {
         song: "Hang On",
         album: "Hurley",
         duration: "3:33",
-        popularity: 3
+        popularity: 3,
+        cover: "hurley.png"
     },
     {
         song: "Beverly Hills",

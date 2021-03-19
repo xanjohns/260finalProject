@@ -1,29 +1,35 @@
 <template>
   <div>
     <h1>Search</h1>
-    <ResultList :songs="songs" />
+    <input type="text" v-model="userInput" placeholder="Album, song, etc." />
+
+    <ResultList :songs="songs" :userInp="userInput" />
   </div>
 </template>
 
 <script>
 import ResultList from "../components/ResultList.vue";
 export default {
-  name: "Playlist",
+  name: "Search",
   components: {
     ResultList,
   },
-  computed: {
-      songs() {
-          return this.$root.$data.songs;
-      }
-  }
-  
+  data() {
+    return {
+      userInput: "",
+    };
+  },
 
+  computed: {
+    songs() {
+        return this.$root.$data.songs;
+    },
+  },
 };
 </script>
 
 <style scoped>
-  h1 {
-    color: white;
-  }
+h1 {
+  color: white;
+}
 </style>

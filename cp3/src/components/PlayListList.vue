@@ -1,14 +1,24 @@
 <template>
   <div class="wrapper">
-    <div class="song" v-for="song in playListC" :key="song.song">
-      <img :src="'/images/' + song.cover" />
-      <div class="info-cont">
-        <h2>{{ song.song }}</h2>
-        <h3>{{ song.album }}</h3>
+    <button @click="addPlaylist()">Click here to add a playlist</button>
+    <div class="playlist-cont">
+      <div
+        class="playlist"
+        v-for="(playlist, index) in playListC"
+        :key="playlist[0].song"
+      >
+      <h2>PlayList {{index +1}}</h2>
+        <div class="song" v-for="song in playlist" :key="song.song">
+          <img :src="'/images/' + song.cover" />
+          <div class="info-cont">
+            <h2>{{ song.song }}</h2>
+            <h3>{{ song.album }}</h3>
+          </div>
+          <h3>{{ song.duration }}</h3>
+          <h3>{{ song.popularity }}</h3>
+          <button @click="removeSong(song, playlist)">Remove Song</button>
+        </div>
       </div>
-      <h3>{{ song.duration }}</h3>
-      <h3>{{ song.popularity }}</h3>
-      <button @click="removeSong(song)">Remove Song</button>
     </div>
   </div>
 </template>
@@ -21,16 +31,21 @@ export default {
   },
   computed: {
     playListC() {
-      return this.$root.$data.playlist;
+      return this.$root.$data.playlists;
     },
   },
   methods: {
-    removeSong(song) {
-      const index = this.$root.$data.playlist.indexOf(song);
-      if (index > -1) {
-   
-          this.$root.$data.playlist.splice(index, 1);
-        
+    removeSong(song, playlist) {
+      const index = this.$root.$data.playlists.indexOf(playlist);
+      const index2 = this.$root.$data.playlists[index].indexOf(song);
+      if (index2 > -1) {
+        this.$root.$data.playlists[index].splice(index2, 1);
+      }
+    },
+    addPlaylist() {
+      if (this.$root.$data.playlists.length < 6) {
+        let tempObj = [];
+        this.$root.$data.playlists.push(tempObj);
       }
     },
   },
@@ -38,13 +53,21 @@ export default {
 </script>
 
 <style scoped>
+.playlist {
+  margin: 10px auto;
+  background-color: rgb(11, 12, 15);
+  width: 40%;
+  height: auto;
+}
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin: 0px 60px;
+  
+}
+.playlist-cont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 img {
   height: 100%;
@@ -54,7 +77,7 @@ img {
   display: flex;
   flex-direction: row;
   height: 120px;
-  width: 42%;
+  width: 90%;
   background-color: rgb(34, 34, 34);
   margin: 10px auto;
 }

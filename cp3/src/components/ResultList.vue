@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="song" v-for="song in playListC" :key="song.song">
+    <div class="song" v-for="song in userResults" :key="song.song">
       <img :src="'/images/' + song.cover" />
       <div class="info-cont">
         <h2>{{ song.song }}</h2>
@@ -18,6 +18,15 @@ export default {
   name: "ResultList",
   props: {
     songs: Array,
+    userInp: String
+  },
+  computed: {
+    userResults() {
+        return this.songs.filter(currVal => 
+            currVal.song.toLowerCase().includes(this.userInp.toLowerCase()) || currVal.album.toLowerCase().includes(this.userInp.toLowerCase())
+            
+            );
+    }       
   },
   
 };

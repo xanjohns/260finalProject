@@ -7,7 +7,13 @@ Vue.config.productionTip = false
 
 let data = {
   songs: mock,
-  playlist: [],
+  pl1: [],
+  pl2: [],
+  pl3: [],
+  pl4: [],
+  playlists: [
+    
+  ]
 }
 
 new Vue({

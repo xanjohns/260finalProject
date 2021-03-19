@@ -14,7 +14,7 @@ export default {
   },
   computed: {
       PlayListProp() {
-          return this.$root.$data.playlist;
+          return this.$root.$data.playlists;
       }
   }
   
