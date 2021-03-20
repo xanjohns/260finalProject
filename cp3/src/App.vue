@@ -1,19 +1,41 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link id="home" to="/">Home</router-link> 
+      <router-link id="home" to="/">Home</router-link>
       <router-link class="other-link" to="/songs">All Songs</router-link>
       <router-link class="other-link" to="/playlist">View Playlist</router-link>
       <router-link class="other-link" to="/search">Search</router-link>
     </div>
-    <router-view/>
+    <router-view />
+  <div class="footer-cont">
+    <a href="https://github.com/xantastic/cp3">Github</a>
+  </div>
   </div>
 </template>
 
 <style>
+.footer-cont {
+  background-color: grey;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+  display: flex;;
+  justify-content: flex-end;
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+.footer-cont a {
+  justify-content: center;
+  margin: auto 0px;
+  margin-right: 30px;
+  text-decoration: none;
+  color: black;
 
+}
 body {
   margin: 0px;
+  padding-bottom: 60px;
   background-color: rgb(19, 19, 19);
 }
 #app {
@@ -26,18 +48,17 @@ body {
   padding: 0px;
   width: 100%;
   margin: 0px;
-  
 }
 
 .other-link {
   float: right;
-  font-family: 'Staatliches', cursive;
+  font-family: "Staatliches", cursive;
   font-size: 20px;
 }
 
 #home {
   float: left;
-  font-family: 'Staatliches', cursive;
+  font-family: "Staatliches", cursive;
   font-size: 20px;
 }
 
