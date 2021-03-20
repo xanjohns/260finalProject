@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Search</h1>
-    <input type="text" v-model="userInput" placeholder="Album, song, etc." />
+    <input type="text" v-model="userInput" placeholder="Album, song. . ." />
 
     <ResultList :songs="songs" :userInp="userInput" />
   </div>
@@ -36,5 +36,10 @@ input {
     width: 15%;
     font-size: 20px;
     margin-bottom: 20px;
+}
+@media only screen and (max-width: 700px) {
+    input {
+        width: 60%;
+    }
 }
 </style>

@@ -54,6 +54,9 @@ export default {
 </script>
 
 <style scoped>
+button {
+    font-family: 'Lato', sans-serif;
+}
 .wrapper {
   
 }
@@ -134,5 +137,27 @@ img {
   color: white;
 }
 .song h3 {
+}
+@media only screen and (max-width: 700px) {
+    .song {
+        width: 90%;
+        height: 80px;
+    }
+    .info-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont h2 {
+        font-size: 13px;
+    }
+    .stats-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont {
+        margin: auto 10px;
+    }
+    .button-cont button {
+        margin: 2px 2px;
+        font-size: 8px;
+    }
 }
 </style>

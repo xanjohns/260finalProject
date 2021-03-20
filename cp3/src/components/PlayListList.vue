@@ -82,19 +82,9 @@ export default {
 </script>
 
 <style scoped>
-.rem-song-butt {
-  height: 40%;
-  width: 80px;
-  margin: auto auto;
-  margin-right: 15px;
-  margin-left: 10px;
-  background-color: rgb(85, 85, 85);
-  color: white;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
-
-  justify-content: center;
+button {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
 }
 .rem-playlist-butt {
   background-color: rgb(165, 165, 165);
@@ -216,5 +206,48 @@ img {
   color: white;
 }
 .song h3 {
+}
+.rem-song-butt {
+  height: 40%;
+  width: 80px;
+  margin: auto auto;
+  margin-right: 15px;
+  margin-left: 10px;
+  background-color: rgb(85, 85, 85);
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+
+  justify-content: center;
+}
+@media only screen and (max-width: 700px) {
+    .playlist {
+        width: 95%;
+    }
+    .song {
+        width: 90%;
+        height: 80px;
+    }
+    .info-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont h2 {
+        font-size: 13px;
+    }
+    .stats-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont {
+        margin: auto 10px;
+    }
+    .button-cont button {
+        margin: 2px 2px;
+        font-size: 8px;
+    }
+    .rem-song-butt {
+        width: auto;
+        font-size: 9px;
+    }
 }
 </style>

@@ -11,6 +11,7 @@
 </template>
 
 <style>
+
 body {
   margin: 0px;
   background-color: rgb(19, 19, 19);
@@ -30,15 +31,19 @@ body {
 
 .other-link {
   float: right;
+  font-family: 'Staatliches', cursive;
+  font-size: 20px;
 }
 
 #home {
   float: left;
+  font-family: 'Staatliches', cursive;
+  font-size: 20px;
 }
 
 #nav {
   padding: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   background-color: #4169e1;
   margin-bottom: 40px;
   box-shadow: 10px 10px 20px black;
@@ -52,5 +57,11 @@ body {
 
 #nav a.router-link-exact-active {
   color: white;
+}
+
+@media only screen and (max-width: 700px) {
+  #nav a {
+    margin: auto 5px;
+  }
 }
 </style>

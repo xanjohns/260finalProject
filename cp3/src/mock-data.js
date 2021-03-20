@@ -7,10 +7,52 @@ let mock = [
         cover: "green_album.jpg"
     },
     {
+        song: "Don't Let Go",
+        album: "Green Album",
+        duration: "3:00",
+        popularity: 2,
+        cover: "green_album.jpg"
+    },
+    {
+        song: "California Kids",
+        album: "White Album",
+        duration: "3:25",
+        popularity: 5,
+        cover: "white.jpg"
+    },
+    {
+        song: "Wind in Our Sail",
+        album: "White Album",
+        duration: "2:53",
+        popularity: 4,
+        cover: "white.jpg"
+    },
+    {
+        song: "King of the World",
+        album: "White Album",
+        duration: "3:24",
+        popularity: 7,
+        cover: "white.jpg"
+    },
+    {
+        song: "L.A. Girlz",
+        album: "White Album",
+        duration: "3:29",
+        popularity: 7,
+        cover: "white.jpg"
+    },
+    {
         song: "All My Favorite Songs",
         album: "O.K. Human",
         duration: "3:21",
         popularity: 8,
+        cover: "ok_human.jpg"
+    },
+    {
+        song: "Here Comes The Rain",
+        album: "O.K. Human",
+        duration: "2:26",
+        popularity: 6,
         cover: "ok_human.jpg"
     },
     {
@@ -103,6 +145,76 @@ let mock = [
         duration: "2:52",
         popularity: 3,
         cover: "maladroit.jpg"
+    },
+    {
+        song: "Keep Fishin'",
+        album: "Maladroit",
+        duration: "2:52",
+        popularity: 3,
+        cover: "maladroit.jpg"
+    },
+    {
+        song: "Burndt Jamb",
+        album: "Maladroit",
+        duration: "2:38",
+        cover: "maladroit.jpg",
+        popularity: 4
+    },
+    {
+        song: "My Name Is Jonas",
+        album: "Blue Album",
+        duration: "3:24",
+        popularity: 8,
+        cover: "blue.jpg"
+    },
+    {
+        song: "Surf Wax America",
+        album: "Blue Album",
+        duration: "3:06",
+        popularity: 7,
+        cover: "blue.jpg"
+    },
+    {
+        song: "In The Garage",
+        album: "Blue Album",
+        duration: "3:55",
+        popularity: 6,
+        cover: "blue.jpg"
+    },
+    {
+        song: "Holiday",
+        album: "Blue Album",
+        duration: "3:24",
+        popularity: 6,
+        cover: "blue.jpg"
+    },
+    {
+        song: "Only In Dreams",
+        album: "Blue Album",
+        duration: "7:59",
+        popularity: 4,
+        cover: "blue.jpg",
+    },
+    {
+        song: "Buddy Holly",
+        album: "Blue Album",
+        duration: "2:39",
+        popularity: 6,
+        cover: "blue.jpg"
+    },
+    {
+        song: "Undone",
+        album: "Blue Album",
+        duration: "5:06",
+        popularity: 8,
+        cover: "blue.jpg"
+    },
+    {
+        song: "Say It Ain't So",
+        album: "Blue Album",
+        duration: "4:18",
+        popularity: 9,
+        cover: "blue.jpg"
     },
 ]
 

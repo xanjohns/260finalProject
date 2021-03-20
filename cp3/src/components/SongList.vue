@@ -72,13 +72,8 @@ export default {
 </script>
 
 <style >
-.filter-cont button {
-    background-color: #4169e1;
-    margin: 0px 30px;
-    height: 60px;
-    width: 130px;
-    font-size: 25px;
-    color: white;
+button {
+    font-family: 'Lato', sans-serif;
 }
 .stats-cont {
     display: flex;
@@ -110,15 +105,6 @@ export default {
   height: 100%;
   justify-content: center;
   align-items: center;
-}
-.button-cont button {
-  margin: 5px 5px;
-  height: 20%;
-  width: auto;
-  color: white;
-  background-color: rgb(75, 75, 78);
-  border: none;
-  text-decoration: none;
 }
 .wrapper {
 }
@@ -156,6 +142,51 @@ img {
   margin: 0px 0px;
   color: white;
 }
+.button-cont button {
+  margin: 5px 5px;
+  height: 20%;
+  width: auto;
+  color: white;
+  background-color: rgb(75, 75, 78);
+  border: none;
+  text-decoration: none;
+}
 .song h3 {
+}
+.filter-cont button {
+    background-color: #4169e1;
+    margin: 0px 30px;
+    height: 60px;
+    width: 130px;
+    font-size: 25px;
+    color: white;
+}
+@media only screen and (max-width: 700px) {
+    .filter-cont button {
+        margin: 0px 5px;
+        width: auto;
+        height: 30px; 
+        font-size: 15px;
+    }
+    .song {
+        width: 90%;
+        height: 80px;
+    }
+    .info-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont h2 {
+        font-size: 13px;
+    }
+    .stats-cont h3 {
+        font-size: 10px;
+    }
+    .info-cont {
+        margin: auto 10px;
+    }
+    .button-cont button {
+        margin: 2px 2px;
+        font-size: 8px;
+    }
 }
 </style>

@@ -26,6 +26,7 @@ ul {
 }
 img {
   margin: 0px auto;
+  width: 80%;
 }
 li {
   display: inline-block;
@@ -38,5 +39,13 @@ a {
   font-size: 80px;
   color: white;
   margin: 0px 0px;
+}
+@media only screen and (max-width: 700px) {
+  #title {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 25px;
+  }
 }
 </style>
