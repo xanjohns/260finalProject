@@ -68,7 +68,7 @@ export default {
       this.getPlayLists();
       }
       catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async addPlaylist() {
@@ -78,7 +78,7 @@ export default {
         this.getPlayLists();
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
 
         //this.$root.$data.playlists.push(tempObj);
@@ -88,10 +88,10 @@ export default {
       try {
         let playlists = await axios.get("/api/playlists");
         this.playList = playlists;
-        console.log(this.playList);
+        //console.log(this.playList);
       }
       catch (error) {
-        console.log(error);
+       // console.log(error);
       }
     },
     async removePlaylist(playlist) {
@@ -100,7 +100,7 @@ export default {
       this.getPlayLists();
       }
       catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
   },

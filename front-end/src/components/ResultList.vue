@@ -60,7 +60,7 @@ export default {
         this.getSongs();
       }
       catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async getSongs() {
@@ -69,17 +69,17 @@ export default {
         this.songs = response.data;
         return true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
     async getPlayLists() {
       try {
         let playlists1 = await axios.get("/api/playlists");
         this.playlists = playlists1;
-        console.log(this.playList);
+        //console.log(this.playList);
       }
       catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
   }

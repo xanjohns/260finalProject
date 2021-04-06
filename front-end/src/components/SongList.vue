@@ -72,7 +72,7 @@ export default {
     async addSong(song, playlist) {
       try {
         await axios.put(`/api/playlists/${playlist._id}/${song._id}`);
-        this.getSongs();
+        
       }
       catch (error) {
         console.log(error);
