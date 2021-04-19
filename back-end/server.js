@@ -12,13 +12,29 @@ app.use(
 app.use(bodyParser.json());
 
 // connect to the database
-mongoose.connect("mongodb://localhost:27017/cp4", {
+mongoose.connect("mongodb://localhost:27017/cp5", {
   useNewUrlParser: true,
 });
+
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+    name: 'session',
+    keys: ['secretValue'],
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
+}));
 
 mongoose.connection.on("connected", () => {
   console.log("Connected to DB");
 });
+
+const users = require("./users.js");
+const User = users.model;
+const validUser = users.valid;
 
 let count = 0;
 
@@ -31,6 +47,10 @@ const playlistSchema = new mongoose.Schema({
       ref: "Song",
     },
   ],
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 });
 
 // Create a model for items in the museum.
@@ -76,11 +96,12 @@ app.post("/api/songs", async (req, res) => {
   }
 });
 
-app.post("/api/playlists", async (req, res) => {
+app.post("/api/playlists", validUser, async (req, res) => {
   let str1 = "Playlist ";
   const playlist = new Playlist({
     title: str1.concat(count),
     songs: [],
+    user: req.user,
   });
   count++;
   try {
@@ -92,9 +113,11 @@ app.post("/api/playlists", async (req, res) => {
   }
 });
 
-app.get("/api/playlists", async (req, res) => {
+app.get("/api/playlists", validUser, async (req, res) => {
   try {
-    let playlists = await Playlist.find().populate("songs");
+    let playlists = await Playlist.find({
+      user: req.user,
+    }).populate("user").populate("songs");
     res.send(playlists);
   } catch (error) {
     console.log(error);
@@ -102,7 +125,7 @@ app.get("/api/playlists", async (req, res) => {
   }
 });
 
-app.put("/api/playlists/:playlistID/:songID", async (req, res) => {
+app.put("/api/playlists/:playlistID/:songID", validUser, async (req, res) => {
   try {
     let playlist = await Playlist.findByIdAndUpdate(
       req.params.playlistID,
@@ -162,4 +185,7 @@ app.delete("/api/playlists/:playlistID/:songID", async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log("Server listening on port 3001!"));
+
+app.use("/api/users", users.routes);
+
+app.listen(3004, () => console.log("Server listening on port 3004!"));

@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>PlayLists</h1>
-    <PlayListList :playList="this.playlists" />
+    <PlayListList :playList="this.playlists" v-if="this.$root.$data.user"/>
+    <h2 v-else>Must login to create playlists!</h2>
   </div>
 </template>
 

@@ -13,7 +13,8 @@ let data = {
   pl4: [],
   playlists: [
     
-  ]
+  ],
+  user: null,
 }
 
 new Vue({
